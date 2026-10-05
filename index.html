@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fire - Mira Estável</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background: #08080d;
+  color: #fff;
+}
+
+.panel {
+  width: 90%;
+  max-width: 370px;
+  padding: 25px;
+  border-radius: 22px;
+  background: #15151d;
+  border: 1px solid #9b3cff;
+  box-shadow: 0 0 30px #5b16a8;
+}
+
+h1 {
+  text-align: center;
+  color: #c66aff;
+  margin: 0 0 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  margin-bottom: 25px;
+}
+
+.status {
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0e0e13;
+  margin-bottom: 18px;
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff3030;
+  margin-right: 7px;
+}
+
+.status.on .dot {
+  background: #32ff70;
+  box-shadow: 0 0 14px #32ff70;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #1d1d26;
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Switch */
+.switch {
+  width: 58px;
+  height: 32px;
+  position: relative;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #383842;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 4px;
+  top: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background: #9138ff;
+  box-shadow: 0 0 15px #9138ff;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+button {
+  width: 100%;
+  border: 0;
+  padding: 16px;
+  border-radius: 13px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #7624d9, #b54cff);
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.info {
+  text-align: center;
+  color: #666;
+  font-size: 11px;
+  margin-top: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+  <h1>🔥 FREE FIRE</h1>
+  <div class="subtitle">PAINEL MIRA ESTÁVEL</div>
+
+  <div class="status" id="status">
+    <span class="dot"></span>
+    <span id="statusText">MIRA ESTÁVEL: OFF</span>
+  </div>
+
+  <div class="option">
+    <div>
+      <div class="title">🎯 Mira Estável</div>
+      <div class="description">Ativar / desativar painel</div>
+    </div>
+
+    <label class="switch">
+      <input type="checkbox" id="aim">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <button onclick="abrirFreeFire()">
+    ▶ ABRIR FREE FIRE
+  </button>
+
+  <div class="info">
+    Interface HTML demonstrativa.
+  </div>
+
+</div>
+
+<script>
+const aim = document.getElementById("aim");
+const status = document.getElementById("status");
+const statusText = document.getElementById("statusText");
+
+aim.addEventListener("change", () => {
+
+  if (aim.checked) {
+    status.classList.add("on");
+    statusText.textContent = "MIRA ESTÁVEL: ON";
+  } else {
+    status.classList.remove("on");
+    statusText.textContent = "MIRA ESTÁVEL: OFF";
+  }
+
+});
+
+function abrirFreeFire() {
+  window.location.href = "freefire://";
+}
+</script>
+
+</body>
+</html>
